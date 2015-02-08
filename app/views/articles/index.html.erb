@@ -4,7 +4,7 @@
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th colspan="2"></th>
+    <th colspan="3"></th>
   </tr>
 
   <% @articles.each do |article| %>
@@ -13,6 +13,10 @@
         <td><%= article.text %></td>
         <td><%= link_to 'Show', article_path(article) %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Destroy', article_path(article),
+                        method: :delete, data: { confirm: 'Are you sure?', foo: 'bar' }, class: 'rama_del_tamarindo' %></td>
+        <!-- El atributo data-foo y la clase CSS rama_del_tamarindo son de prueba. Las escribí para que me quedara
+        claro el uso de los parámetros en el método link_to -->
       </tr>
   <% end %>
 </table>
